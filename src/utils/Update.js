@@ -1,6 +1,6 @@
 const updateUserInfo = async (userId, newData) => {
     try {
-    const response = await fecth('https://jsonplaceholder.typicode.com/todos/1', {
+    const response = await fecth('https://jsonplaceholder.typicode.com/todos/posts/${userId}', {
     method: 'PUT',
     headers: {
      'Content-Type': 'application/json',
