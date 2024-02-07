@@ -1,6 +1,6 @@
 const createNewUser = async () => {
     try {
-        const response = await axios.post('https://randomuser.me/api/?results=10', {
+        const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
     
             headers: {
                 'Content-Type': 'application/json',
