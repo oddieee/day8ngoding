@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
-import UserList from './src/components/UserList';
+import UserList from './src/screens/UserList';
 
 export default function App() {
   return (
