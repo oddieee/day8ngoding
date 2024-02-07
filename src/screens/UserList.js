@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Button, FlatList, StyleSheet, Alert } from 'react-native';
 import axios from 'axios';
 
 const UserList = () => {
@@ -18,6 +18,23 @@ const UserList = () => {
         fetchData();
     }, []);
 
+    const deleteUser = async (userId) => {
+        try {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
+                method: 'DELETE',
+            });
+    
+            if (response.ok) {
+                console.log('User Deleted Successfully');
+            } else {
+                console.log('Failed to delete user');
+            }
+        } catch (error) {
+            console.error('Error deleting user', error);
+        }
+    };
+    
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>List of Users</Text>
@@ -28,6 +45,10 @@ const UserList = () => {
                     <View style={styles.userItem}>
                         <Text style={styles.userTitle}>{item.title}</Text>
                         <Text>Body: {item.body}</Text>
+                        <Button
+                        title="Delete"
+                        onPress={() => deleteUser(item.id)}
+                          />                                            
                     </View>
                 )}
             />
