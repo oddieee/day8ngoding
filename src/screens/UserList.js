@@ -8,7 +8,7 @@ const UserList = () =>{
     useEffect (()=>{
         const fetchData = async () => {
             try{
-                const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+                const response = await axios.get('https://jsonplaceholder.typicode.com/todos/posts');
                 setUsers(response.data);
             }catch(error){
                 console.error('Error fetching data:', error);
@@ -26,9 +26,8 @@ const UserList = () =>{
             keyExtractor={item => String(item.id)}
             renderItem={({item}) => (
                 <View style={styles.userItem}>
-                    <Text style={styles.userName}>{item.name}</Text>
-                    <Text>Email: {item.email}</Text>
-                    <Text>Phone: {item.phone}</Text>
+                    <Text style={styles.userTitle}>{item.title}</Text>
+                    <Text>Body: {item.body}</Text>
                 </View>
             )}   
             />         
@@ -53,7 +52,7 @@ const styles = Stylesheet.create({
         padding:10,
         borderRadius:8,
     },
-    userName:{
+    userTitle:{
         fontSize:16,
         fontWeight:'bold',
         marginBottom:8,
