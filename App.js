@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, StatusBar} from 'react-native';
 import UserList from './src/screens/UserList';
@@ -21,11 +20,11 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
 
-    <>
-    <StatusBar barStyle="dark-content" />
-    <SafeAreaView style={{flex:1}}>
-      <UserList />
-    </SafeAreaView>
-    </>
+    // <>
+    // <StatusBar barStyle="dark-content" />
+    // <SafeAreaView style={{flex:1}}>
+    //   <UserList />
+    // </SafeAreaView>
+    // </>
   );
 };

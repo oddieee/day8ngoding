@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, Flatlist, Stylesheet} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import axios from 'axios';
 
-const UserList = () =>{
+const UserList = () => {
     const [users, setUsers] = useState([]);
 
-    useEffect (()=>{
+    useEffect(() => {
         const fetchData = async () => {
-            try{
-                const response = await axios.get('https://jsonplaceholder.typicode.com/todos/posts');
+            try {
+                const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
                 setUsers(response.data);
-            }catch(error){
+            } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
@@ -21,41 +21,41 @@ const UserList = () =>{
     return (
         <View style={styles.container}>
             <Text style={styles.title}>List of Users</Text>
-            <Flatlist
-            data={users}
-            keyExtractor={item => String(item.id)}
-            renderItem={({item}) => (
-                <View style={styles.userItem}>
-                    <Text style={styles.userTitle}>{item.title}</Text>
-                    <Text>Body: {item.body}</Text>
-                </View>
-            )}   
-            />         
+            <FlatList
+                data={users}
+                keyExtractor={item => String(item.id)}
+                renderItem={({ item }) => (
+                    <View style={styles.userItem}>
+                        <Text style={styles.userTitle}>{item.title}</Text>
+                        <Text>Body: {item.body}</Text>
+                    </View>
+                )}
+            />
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        padding:16,
+    container: {
+        flex: 1,
+        padding: 16,
     },
-    title:{
-        fontSize:20,
-        fontWeight:'bold',
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
         marginBottom: 16,
     },
-    userItem:{
-        marginBottom:16,
-        borderWidth:1,
-        borderColor:'#ddd',
-        padding:10,
-        borderRadius:8,
+    userItem: {
+        marginBottom: 16,
+        borderWidth: 1,
+        borderColor: '#ddd',
+        padding: 10,
+        borderRadius: 8,
     },
-    userTitle:{
-        fontSize:16,
-        fontWeight:'bold',
-        marginBottom:8,
+    userTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 8,
     },
 });
 
