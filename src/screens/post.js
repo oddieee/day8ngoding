@@ -21,24 +21,26 @@ const createNewUser = async () => {
     } catch (error) {
       console.error('Error adding user:', error);
     }
+
+    return(
+        <View style={StyleSheet.container}>
+            <TextInput
+            style={style.input}
+            placeholder="Enter Name"
+            value={userName}
+            onChange={text => setUserName(text)}
+        />
+        <TextInput
+            style={style.input}
+            placeholder="Enter Email"
+            value={userEmail}
+            onChange={text => setUserEmail(text)}
+        />
+        <TouchableOpacity style={StyleSheet.addButton} onPress={handleAdduser}>
+            <Text style={StyleSheet.buttonText}>Add User</Text>
+        </TouchableOpacity>
+        </View>
+    )
+
 };
 
-return(
-    <View style={StyleSheet.container}>
-        <TextInput
-        style={style.input}
-        placeholder="Enter Name"
-        value={userName}
-        onChange={text => setUserName(text)}
-    />
-    <TextInput
-        style={style.input}
-        placeholder="Enter Email"
-        value={userEmail}
-        onChange={text => setUserEmail(text)}
-    />
-    <TouchableOpacity style={StyleSheet.addButton} onPress={handleAdduser}>
-        <Text style={StyleSheet.buttonText}>Add User</Text>
-    </TouchableOpacity>
-    </View>
-)

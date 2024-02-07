@@ -11,6 +11,6 @@ const updateUserInfo = async (userId, newData) => {
     const updatedUser = await response.json();
     consule.log('User Updated:', updatedUser);
     } catch (error) {
-    consule.error ('Error updating user': error);
+    consule.error ('Error updating user', error);
     }
 };
