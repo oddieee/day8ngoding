@@ -21,11 +21,11 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
 
-    // <>
-    // <StatusBar barStyle="dark-content" />
-    // <SafeAreaView style={{flex:1}}>
-    //   <UserList />
-    // </SafeAreaView>
-    // </>
+    <>
+    <StatusBar barStyle="dark-content" />
+    <SafeAreaView style={{flex:1}}>
+      <UserList />
+    </SafeAreaView>
+    </>
   );
 };
